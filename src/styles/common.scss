@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap");
+
+.image {
+	object-fit: cover;
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: inherit;
+	}
+}

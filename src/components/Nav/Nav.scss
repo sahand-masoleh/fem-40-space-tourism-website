@@ -1,0 +1,8 @@
+@use "@styles/variables" as *;
+
+.nav {
+	&__logo {
+		height: 2rem;
+		aspect-ratio: 1;
+	}
+}
