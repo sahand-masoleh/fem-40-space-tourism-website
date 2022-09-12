@@ -6,6 +6,7 @@ import Nav from "@components/Nav/Nav";
 import Home from "@routes/Home/Home";
 import Destination from "@routes/destination/Destination";
 import Crew from "@routes/crew/Crew";
+import Technology from "@routes/technology/Technology";
 
 function App() {
 	return (
@@ -18,7 +19,10 @@ function App() {
 					element={<Destination destinations={data.destinations} />}
 				></Route>
 				<Route path="/crew/*" element={<Crew crew={data.crew} />}></Route>
-				<Route path="/technology" element={null}></Route>
+				<Route
+					path="/technology/*"
+					element={<Technology technology={data.technology} />}
+				></Route>
 			</Routes>
 		</BrowserRouter>
 	);
