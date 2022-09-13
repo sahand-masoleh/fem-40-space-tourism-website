@@ -26,10 +26,15 @@ function Terminology({ links }: Props) {
 			<div className="termonilogy___image image">
 				<picture>
 					<source
+						className="image__img"
 						srcSet={termonilogy?.images.portrait}
 						media="(max-width: 640px)"
 					/>
-					<img src={termonilogy?.images.landscape} alt="" />
+					<img
+						className="image__img"
+						src={termonilogy?.images.landscape}
+						alt=""
+					/>
 				</picture>
 			</div>
 			<h2 className="termonilogy__name">{termonilogy?.name}</h2>

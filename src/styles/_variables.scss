@@ -1,3 +1,16 @@
-$barlow: "Barlow", sans-serif;
-$barlow-condensed: "Barlow Condensed", sans-serif;
-$bellefair: "Bellefair", serif;
+$ff-barlow: "Barlow", sans-serif;
+$ff-barlow-condensed: "Barlow Condensed", sans-serif;
+$ff-bellefair: "Bellefair", serif;
+
+$c-white: #ffffff;
+$c-light-blue: #d0d6f9;
+$c-grey: #979797;
+$c-grey-transparent: rgb(151, 151, 151, 0.25);
+$c-black: #0b0d17;
+
+$max-width: 70rem;
+
+@mixin max-width($width: $max-width) {
+	max-width: $width;
+	margin: 0 auto;
+}

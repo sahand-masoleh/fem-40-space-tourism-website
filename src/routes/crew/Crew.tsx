@@ -6,7 +6,6 @@ interface Props {
 	crew: {
 		name: string;
 		images: {
-			png: string;
 			webp: string;
 		};
 		role: string;

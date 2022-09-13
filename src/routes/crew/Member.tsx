@@ -21,7 +21,7 @@ function Member({ links }: Props) {
 	return (
 		<div className="crew">
 			{links}
-			<div className="member___image image" hidden>
+			<div className="member___image image">
 				<img src={member?.images.webp} alt="" className="image__img" />
 			</div>
 			<h2 className="member__name">{member?.name}</h2>

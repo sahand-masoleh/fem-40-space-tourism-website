@@ -21,7 +21,7 @@ function Planet({ links }: Props) {
 	return (
 		<div className="destination">
 			{links}
-			<div className="destination___image image" hidden>
+			<div className="destination___image image">
 				<img src={planet?.images.webp} alt="" className="image__img" />
 			</div>
 			<h2 className="destination__name">{planet?.name}</h2>

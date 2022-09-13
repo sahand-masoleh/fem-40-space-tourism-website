@@ -2,33 +2,70 @@
 
 import "./Nav.scss";
 
-import { Link } from "react-router-dom";
+import { useLocation, matchPath } from "react-router-dom";
 import { ReactComponent as Logo } from "@assets/shared/logo.svg";
+import { useEffect, useState } from "react";
+import CustomLink from "./CustomLink";
+import HoverBox from "./HoverBox";
+
+export enum paths {
+	home = "home",
+	destination = "destination",
+	crew = "crew",
+	technology = "technology",
+}
+
+type hoverBox = {
+	clientWidth: number | null;
+	offsetLeft: number | null;
+};
 
 function Nav() {
+	const [current, setCurrent] = useState("");
+	const location = useLocation();
+	useEffect(() => {
+		for (let path in paths) {
+			if (matchPath({ path, end: false }, location.pathname)) {
+				setCurrent(path);
+			}
+		}
+	}, [location]);
+	const [hoverBox, setHoverBox] = useState<hoverBox>({
+		clientWidth: null,
+		offsetLeft: null,
+	});
+
+	const linksMap = [];
+	for (let index = 0; index < Object.keys(paths).length; index++) {
+		const path = Object.keys(paths)[index];
+		linksMap.push(
+			<CustomLink
+				key={index}
+				path={path}
+				number={index}
+				active={current === path}
+				handleHover={handleHover}
+			/>
+		);
+	}
+
+	function handleHover(offsetLeft?: number, clientWidth?: number) {
+		if (offsetLeft && clientWidth) {
+			setHoverBox({ offsetLeft, clientWidth });
+		} else {
+			setHoverBox({ offsetLeft: null, clientWidth: null });
+		}
+	}
+
 	return (
-		<nav>
+		<nav className="nav">
 			<div className="nav__logo image">
 				<Logo className="image__img" />
 			</div>
 			<div className="nav__line"></div>
-			<div className="nav__link-container">
-				<Link to="/" className="link">
-					<span className="link__number">00</span>{" "}
-					<span className="link__text">Home</span>
-				</Link>
-				<Link to="/destination" className="link">
-					<span className="link__number">01</span>{" "}
-					<span className="link__text">Destination</span>
-				</Link>
-				<Link to="/crew" className="link">
-					<span className="link__number">02</span>{" "}
-					<span className="link__text">Crew</span>
-				</Link>
-				<Link to="/technology" className="link">
-					<span className="link__number">03</span>{" "}
-					<span className="link__text">Technology</span>
-				</Link>
+			<div className="nav__link-container" onMouseLeave={() => handleHover()}>
+				{linksMap}
+				<HoverBox left={hoverBox.offsetLeft} width={hoverBox.clientWidth} />
 			</div>
 		</nav>
 	);
