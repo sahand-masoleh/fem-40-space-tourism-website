@@ -1,20 +1,16 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-
-export type hoverDims = {
-	clientWidth?: number;
-	offsetLeft?: number;
-};
+import { hoverDims } from "./HoverBox";
 
 interface Props {
 	className: string;
 	path: string;
 	active: boolean;
-	handleHoverDims: (hoverDims?: hoverDims) => void;
+	handleHoverDims: (dims?: hoverDims) => void;
 	children: string | JSX.Element | JSX.Element[];
 }
 
-function LinkHover({
+function CustomLink({
 	className,
 	path,
 	active,
@@ -26,7 +22,7 @@ function LinkHover({
 	function handleMouseEnter() {
 		const { clientWidth, offsetLeft } = elemRef.current || {};
 		if (clientWidth && offsetLeft !== undefined) {
-			handleHoverDims({ clientWidth, offsetLeft });
+			handleHoverDims({ width: clientWidth, left: offsetLeft });
 		} else {
 			handleHoverDims(undefined);
 		}
@@ -44,4 +40,4 @@ function LinkHover({
 	);
 }
 
-export default LinkHover;
+export default CustomLink;
