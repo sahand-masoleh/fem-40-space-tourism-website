@@ -9,19 +9,13 @@
 		z-index: -1;
 	}
 
-	@include max-width();
-	margin-top: 15rem;
+	margin-top: 8rem;
 	display: grid;
-	grid-template-areas:
-		"pre-title button"
-		"title button"
-		"description button";
-	grid-auto-columns: minmax(0, 30rem) min-content;
+	grid-template-columns: repeat(2, minmax(0, 30rem));
 	justify-content: space-between;
-	align-items: end;
+	align-items: flex-end;
 
 	&__pre-title {
-		grid-area: pre-title;
 		color: $c-light-blue;
 		font-family: $ff-barlow-condensed;
 		text-transform: uppercase;
@@ -30,7 +24,6 @@
 	}
 
 	&__title {
-		grid-area: title;
 		color: $c-white;
 		font-family: $ff-bellefair;
 		text-transform: uppercase;
@@ -40,7 +33,6 @@
 	}
 
 	&__description {
-		grid-area: description;
 		color: $c-light-blue;
 		font-family: $ff-barlow;
 		line-height: 3ch;
@@ -48,7 +40,7 @@
 	}
 
 	&__button {
-		grid-area: button;
+		justify-self: right;
 		color: $c-black;
 		background-color: $c-white;
 		border-radius: 50%;

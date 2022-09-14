@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import useData from "@routes/hooks/useData";
+import useData from "@hooks/useData";
 import Member from "./Member";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 }
 
 function Crew({ crew }: Props) {
-	const links = useData(crew, "crew");
+	// const links = useData(crew, "crew");
 
 	return (
 		<main className="main">
@@ -22,10 +22,10 @@ function Crew({ crew }: Props) {
 				<span className="title__number">02</span>
 				<span className="title__text">meet your crew</span>
 			</h1>
-			<Routes>
+			{/* <Routes>
 				<Route path="/:member" element={<Member links={links} />}></Route>
 				<Route path="*" element={<Navigate to={links[0].props.to} />}></Route>
-			</Routes>
+			</Routes> */}
 		</main>
 	);
 }

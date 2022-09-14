@@ -28,6 +28,10 @@ export default defineConfig({
 				find: "@data",
 				replacement: path.resolve(__dirname, "./src/data"),
 			},
+			{
+				find: "@hooks",
+				replacement: path.resolve(__dirname, "./src/hooks"),
+			},
 		],
 	},
 });

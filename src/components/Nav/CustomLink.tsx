@@ -19,7 +19,7 @@ function CustomLink({ path, number, active, handleHover }: Props) {
 	return (
 		<Link
 			ref={elemRef}
-			to={`/${path}`}
+			to={`../${path}`}
 			className={`link ${active ? "link--active " : ""}`}
 			onMouseEnter={() => handleMouseEnter()}
 		>

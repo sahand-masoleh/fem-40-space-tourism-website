@@ -27,6 +27,7 @@ function Nav() {
 		for (let path in paths) {
 			if (matchPath({ path, end: false }, location.pathname)) {
 				setCurrent(path);
+				break;
 			}
 		}
 	}, [location]);

@@ -1,4 +1,5 @@
 import "@styles/common.scss";
+import "./App.scss";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import data from "@data/data.json";

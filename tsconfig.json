@@ -21,7 +21,8 @@
 			"@assets/*": ["./src/assets/*"],
 			"@styles/*": ["./src/styles/*"],
 			"@routes/*": ["./src/routes/*"],
-			"@data/*": ["./src/data/*"]
+			"@data/*": ["./src/data/*"],
+			"@hooks/*": ["./src/hooks/*"]
 		}
 	},
 	"include": ["src"],
