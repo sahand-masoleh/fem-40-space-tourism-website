@@ -2,7 +2,7 @@ import "./Destination.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useData from "@hooks/useData";
 import Planet from "./Planet";
-import HoverMenu from "@components/HoverMenu/HoverMenu";
+import HoverMenu, { menuItem } from "@components/HoverMenu/HoverMenu";
 
 interface Props {
 	destinations: {
@@ -19,6 +19,11 @@ interface Props {
 function Destination({ destinations }: Props) {
 	const links = useData(destinations);
 
+	const items: menuItem[] = [];
+	for (let link of links) {
+		items.push({ link, element: <>{link}</> });
+	}
+
 	return (
 		<main className="main">
 			<h1 className="main__title title">
@@ -27,7 +32,7 @@ function Destination({ destinations }: Props) {
 			</h1>
 			<div className="destination">
 				<div className="destination__background"></div>
-				<HoverMenu block="destination" links={links} />
+				<HoverMenu block="destination" items={items} />
 				<Routes>
 					<Route path="/:planet" element={<Planet />}></Route>
 					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>

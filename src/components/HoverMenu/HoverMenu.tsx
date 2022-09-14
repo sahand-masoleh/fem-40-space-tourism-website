@@ -4,35 +4,37 @@ import { useLocation } from "react-router-dom";
 import CustomLink from "./CustomLink";
 import HoverBox, { hoverDims } from "./HoverBox";
 
+export type menuItem = { link: string; element: JSX.Element };
+
 interface Props {
 	block: string;
-	links: string[];
+	items: menuItem[];
 }
 
-function HoverMenu({ block, links }: Props) {
+function HoverMenu({ block, items }: Props) {
 	const [current, setCurrent] = useState("");
 	const location = useLocation();
 	const [hoverDims, setHoverDims] = useState<hoverDims | undefined>();
 	useEffect(() => {
-		for (let link of links) {
-			if (location.pathname.split("/").at(-1) === link) {
-				setCurrent(link);
+		for (let item of items) {
+			if (location.pathname.split("/").at(-1) === item.link) {
+				setCurrent(item.link);
 				break;
 			}
 		}
 	}, [location]);
 
 	const linkMap = [];
-	for (let link of links) {
+	for (let item of items) {
 		linkMap.push(
 			<CustomLink
-				key={link}
+				key={item.link}
 				className={`${block}__link`}
-				path={link}
-				active={current === link}
+				path={item.link}
+				active={current === item.link}
 				handleHoverDims={setHoverDims}
 			>
-				{link}
+				{item.element}
 			</CustomLink>
 		);
 	}

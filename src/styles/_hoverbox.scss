@@ -1,0 +1,11 @@
+%hoverbox {
+	position: absolute;
+	bottom: 0;
+	height: 2px;
+	left: calc(var(--left, 0) + calc(var(--last-width, 0px) / 2));
+	width: var(--width, 0);
+	translate: -50%;
+	transition: left, width, translate, opacity;
+	transition-duration: 250ms;
+	z-index: -1;
+}

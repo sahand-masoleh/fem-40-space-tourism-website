@@ -1,3 +1,4 @@
+@use "@styles/hoverbox";
 @use "@styles/variables" as *;
 
 .destination {
@@ -18,6 +19,7 @@
 		max-width: 28rem;
 		margin-left: auto;
 		position: relative;
+		margin-bottom: 1rem;
 	}
 
 	&__link {
@@ -42,16 +44,8 @@
 	}
 
 	&__hoverbox {
-		position: absolute;
-		bottom: 0;
-		height: 2px;
-		left: calc(var(--left, 0) + calc(var(--last-width, 0px) / 2));
-		width: var(--width, 0);
-		translate: -50%;
+		@extend %hoverbox;
 		background-color: $c-grey;
-		transition: left, width;
-		transition-duration: 250ms;
-		z-index: -1;
 	}
 }
 
@@ -75,7 +69,7 @@
 		font-family: $ff-bellefair;
 		font-weight: 400;
 		font-size: 6rem;
-		line-height: 10rem;
+		line-height: 3ch;
 	}
 
 	&__description {
