@@ -31,15 +31,16 @@
 	font-family: $ff-barlow-condensed;
 	font-size: 1.8rem;
 	text-transform: uppercase;
-	font-weight: 400;
 	letter-spacing: 0.3ch;
 
 	&__number {
 		color: $c-grey;
 		margin-right: 2ch;
+		font-weight: 700;
 	}
 
 	&__text {
 		color: $c-white;
+		font-weight: 400;
 	}
 }

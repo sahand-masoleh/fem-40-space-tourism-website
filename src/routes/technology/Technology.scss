@@ -1,0 +1,95 @@
+@use "@styles/variables" as *;
+
+.technology {
+	&__background {
+		background-image: url("/technology/background-technology-desktop.jpg");
+	}
+
+	margin-top: 2rem;
+
+	&__link-container {
+		grid-column: 0/1;
+		margin-top: 6rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		margin-right: 1rem;
+	}
+
+	&__link {
+		display: block;
+		width: 5rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		font-family: $ff-bellefair;
+		font-size: 2rem;
+		text-decoration: none;
+		background-color: transparent;
+		outline: 1px solid;
+		outline-color: $c-grey-transparent;
+		color: $c-white;
+		transition: background-color color outline-color;
+		transition-duration: 250ms;
+
+		&:not(&--active):hover {
+			outline-color: $c-white;
+		}
+
+		&--active {
+			background-color: $c-white;
+			color: $c-black;
+			outline-color: transparent;
+		}
+	}
+}
+
+.terminology {
+	display: grid;
+	justify-content: start;
+	// prettier-ignore
+	grid-template-columns: 1fr minmax(0,38rem) minmax(0, 22rem);
+
+	&__image {
+		grid-column: 3/4;
+		grid-row: 1/2;
+		margin-right: -10rem;
+		height: 33rem;
+	}
+
+	&__article {
+		grid-column: 2/3;
+		margin-top: 6rem;
+		margin-right: 1rem;
+	}
+
+	&__title {
+		color: $c-light-blue;
+		text-transform: uppercase;
+		font-family: $ff-barlow-condensed;
+		font-weight: 400;
+		font-size: 1rem;
+		letter-spacing: 0.25ch;
+		line-height: 3ch;
+	}
+
+	&__name {
+		color: $c-white;
+		text-transform: uppercase;
+		font-family: $ff-bellefair;
+		font-weight: 400;
+		font-size: 3.5rem;
+		line-height: 3ch;
+		margin-bottom: 0.25ch;
+		margin-right: -4rem;
+	}
+
+	&__description {
+		color: $c-light-blue;
+		font-size: 1.1rem;
+		font-family: $ff-barlow;
+		line-height: 3ch;
+		max-width: 44ch;
+	}
+}

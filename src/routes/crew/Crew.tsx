@@ -19,8 +19,8 @@ function Crew({ crew }: Props) {
 	const links = useData(crew);
 
 	const items: item[] = [];
-	for (let index = 0; index < links.length; index++) {
-		items.push({ link: links[index], element: <></> });
+	for (let link of links) {
+		items.push({ link, element: <></> });
 	}
 
 	return (
@@ -31,14 +31,16 @@ function Crew({ crew }: Props) {
 			</h1>
 			<div className="crew">
 				<div className="crew__background background" />
+				<Routes>
+					<Route
+						path="/:member"
+						element={
+							<Member Menu={<SimpleMenu items={items} block="crew" />} />
+						}
+					></Route>
+					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
+				</Routes>
 			</div>
-			<Routes>
-				<Route
-					path="/:member"
-					element={<Member Menu={<SimpleMenu items={items} block="crew" />} />}
-				></Route>
-				<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
-			</Routes>
 		</main>
 	);
 }
