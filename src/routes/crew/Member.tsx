@@ -3,10 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { crew } from "@data/data.json";
 
 interface Props {
-	links: JSX.Element[];
+	Menu: JSX.Element;
 }
 
-function Member({ links }: Props) {
+function Member({ Menu }: Props) {
 	const { member: slug } = useParams();
 	let navigate = useNavigate();
 
@@ -19,13 +19,16 @@ function Member({ links }: Props) {
 	}, [member]);
 
 	return (
-		<div className="crew">
-			{links}
-			<div className="member___image image">
+		<div className="member">
+			<article className="member__article">
+				<h2 className="member__role">{member?.role}</h2>
+				<h3 className="member__name">{member?.name}</h3>
+				<p className="member__bio">{member?.bio}</p>
+				{Menu}
+			</article>
+			<div className="member__image image">
 				<img src={member?.images.webp} alt="" className="image__img" />
 			</div>
-			<h2 className="member__name">{member?.name}</h2>
-			<p className="member__bio">{member?.bio}</p>
 		</div>
 	);
 }

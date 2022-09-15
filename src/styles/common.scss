@@ -9,3 +9,10 @@
 		object-fit: inherit;
 	}
 }
+
+.background {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	z-index: -1;
+}

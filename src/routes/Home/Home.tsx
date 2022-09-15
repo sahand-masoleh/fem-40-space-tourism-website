@@ -5,7 +5,7 @@ function Home() {
 	return (
 		<main className="main">
 			<div className="main__content home">
-				<div className="home__background"></div>
+				<div className="home__background background" />
 				<article className="home__article">
 					<span className="home__pre-title">so, you want to travel to</span>
 					<h1 className="home__title">space</h1>

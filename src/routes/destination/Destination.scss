@@ -3,11 +3,7 @@
 
 .destination {
 	&__background {
-		position: absolute;
-		inset: 0;
 		background-image: url("/destination/background-destination-desktop.jpg");
-		background-size: cover;
-		z-index: -1;
 	}
 
 	margin-top: 4rem;
@@ -32,6 +28,8 @@
 		position: relative;
 
 		&--active {
+			color: $c-white;
+
 			&::after {
 				position: absolute;
 				content: "";

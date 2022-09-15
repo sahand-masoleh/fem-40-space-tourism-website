@@ -31,13 +31,13 @@ function Destination({ destinations }: Props) {
 				<span className="title__text">pick your destination</span>
 			</h1>
 			<div className="destination">
-				<div className="destination__background"></div>
+				<div className="destination__background background" />
 				<HoverMenu block="destination" items={items} />
-				<Routes>
-					<Route path="/:planet" element={<Planet />}></Route>
-					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
-				</Routes>
 			</div>
+			<Routes>
+				<Route path="/:planet" element={<Planet />}></Route>
+				<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
+			</Routes>
 		</main>
 	);
 }
