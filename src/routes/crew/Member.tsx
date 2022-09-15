@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { crew } from "@data/data.json";
+import trimName from "@utils/trimName";
 
 interface Props {
 	Menu: JSX.Element;
@@ -10,7 +11,7 @@ function Member({ Menu }: Props) {
 	const { member: slug } = useParams();
 	let navigate = useNavigate();
 
-	const member = crew.find((e) => e.name.toLowerCase() === slug);
+	const member = crew.find((e) => trimName(e.name) === slug);
 
 	useEffect(() => {
 		if (!member) {

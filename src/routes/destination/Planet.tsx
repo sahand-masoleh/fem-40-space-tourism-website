@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { destinations } from "@data/data.json";
+import trimName from "@utils/trimName";
 
 function Planet() {
 	const { planet: slug } = useParams();
 	let navigate = useNavigate();
 
-	const planet = destinations.find((e) => e.name.toLowerCase() === slug);
+	const planet = destinations.find((e) => trimName(e.name) === slug);
 
 	useEffect(() => {
 		if (!planet) {

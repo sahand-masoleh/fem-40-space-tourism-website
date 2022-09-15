@@ -1,3 +1,5 @@
+import trimName from "@utils/trimName";
+
 type data = {
 	name: string;
 };
@@ -5,7 +7,7 @@ type data = {
 function useData(data: data[]) {
 	let links = [];
 	for (let entry of data) {
-		const slug = entry.name.toLowerCase();
+		const slug = trimName(entry.name);
 		links.push(slug);
 	}
 

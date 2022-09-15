@@ -1,23 +1,26 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { hoverDims } from "./HoverBox";
 
 interface Props {
 	className: string;
 	path: string;
-	active: boolean;
 	handleHoverDims: (dims?: hoverDims) => void;
 	children: string | JSX.Element | JSX.Element[];
 }
 
-function CustomLink({
-	className,
-	path,
-	active,
-	handleHoverDims,
-	children,
-}: Props) {
+function HoverLink({ className, path, handleHoverDims, children }: Props) {
 	const elemRef = useRef<HTMLAnchorElement | null>(null);
+	const { pathname } = useLocation();
+	const [active, setActive] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (!!pathname.match(new RegExp(`${path}`))) {
+			setActive(true);
+		} else {
+			setActive(false);
+		}
+	}, [pathname]);
 
 	function handleMouseEnter() {
 		const { clientWidth, offsetLeft } = elemRef.current || {};
@@ -40,4 +43,4 @@ function CustomLink({
 	);
 }
 
-export default CustomLink;
+export default HoverLink;

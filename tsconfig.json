@@ -22,7 +22,8 @@
 			"@styles/*": ["./src/styles/*"],
 			"@routes/*": ["./src/routes/*"],
 			"@data/*": ["./src/data/*"],
-			"@hooks/*": ["./src/hooks/*"]
+			"@hooks/*": ["./src/hooks/*"],
+			"@utils/*": ["./src/utils/*"]
 		},
 		"noImplicitAny": true,
 		"noImplicitReturns": true
