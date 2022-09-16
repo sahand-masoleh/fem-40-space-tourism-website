@@ -12,6 +12,10 @@
 		margin: 0 4rem;
 	}
 
+	@media screen and (max-width: $tablet) {
+		margin: 0 2rem;
+	}
+
 	display: grid;
 	grid-template-rows: 7rem auto;
 	grid-template-areas:

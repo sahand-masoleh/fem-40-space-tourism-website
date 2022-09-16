@@ -8,12 +8,24 @@
 	align-items: center;
 	margin-top: 3rem;
 
+	@media screen and (max-width: $tablet) {
+		margin-top: 0;
+		grid-template-columns: auto minmax(0, 28rem);
+		gap: 2rem;
+		justify-content: space-between;
+	}
+
 	&__logo {
 		height: 3rem;
 		aspect-ratio: 1;
 		color: $c-white;
 		margin-left: 4rem;
 		width: 6rem;
+
+		@media screen and (max-width: $tablet) {
+			margin-left: 2rem;
+			width: unset;
+		}
 	}
 
 	&__line {
@@ -21,16 +33,27 @@
 		background-color: $c-grey-transparent;
 		z-index: 1;
 		margin-right: -2rem;
+
+		@media screen and (max-width: $tablet) {
+			display: none;
+		}
 	}
 
 	&__link-container {
 		display: flex;
 		align-items: center;
-		gap: clamp(1ch, 5vw, 6ch);
-		justify-content: center;
-		padding-right: 2rem;
+		gap: 1ch;
+		justify-content: space-between;
+		padding-left: clamp(1rem, 10vw, 8rem);
+		padding-right: clamp(1rem, 12vw, 10rem);
 		backdrop-filter: blur(1rem);
 		position: relative;
+
+		@media screen and (max-width: $tablet) {
+			padding: 0 3rem;
+			justify-content: space-between;
+			gap: 1ch;
+		}
 
 		&::before {
 			content: "";
@@ -51,6 +74,10 @@
 		position: relative;
 		cursor: pointer;
 
+		@media screen and (max-width: $tablet) {
+			font-size: 0.9rem;
+		}
+
 		&--active {
 			&::after {
 				position: absolute;
@@ -66,6 +93,10 @@
 		font-weight: 700;
 		margin-right: 1ch;
 		letter-spacing: 0.3ch;
+
+		@media screen and (max-width: $tablet) {
+			display: none;
+		}
 	}
 
 	&__text {
