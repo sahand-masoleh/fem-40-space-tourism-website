@@ -21,7 +21,7 @@ function Destination({ destinations }: Props) {
 
 	const items: menuItem[] = [];
 	for (let link of links) {
-		items.push({ link, element: <>{link}</> });
+		items.push({ link: "../" + link, element: <>{link}</> });
 	}
 
 	return (
@@ -32,9 +32,13 @@ function Destination({ destinations }: Props) {
 			</h1>
 			<div className="destination">
 				<div className="destination__background background" />
-				<HoverMenu block="destination" items={items} />
 				<Routes>
-					<Route path="/:planet" element={<Planet />}></Route>
+					<Route
+						path="/:planet"
+						element={
+							<Planet Menu={<HoverMenu block="destination" items={items} />} />
+						}
+					></Route>
 					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
 				</Routes>
 			</div>

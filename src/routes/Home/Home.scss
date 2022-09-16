@@ -6,16 +6,18 @@
 	}
 
 	margin-top: 8rem;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 30rem));
+	display: flex;
 	justify-content: space-between;
-	align-items: flex-end;
+	align-items: flex-start;
 
 	&__pre-title {
+		display: grid;
+		grid-template-columns: max-content;
+		margin-right: -10rem;
 		color: $c-light-blue;
 		font-family: $ff-barlow-condensed;
 		text-transform: uppercase;
-		font-size: 1.8rem;
+		font-size: 1.7rem;
 		letter-spacing: 0.4ch;
 	}
 
@@ -23,9 +25,10 @@
 		color: $c-white;
 		font-family: $ff-bellefair;
 		text-transform: uppercase;
-		font-size: 10rem;
+		font-size: 9rem;
 		font-weight: 400;
-		line-height: 15rem;
+		margin: 1.5rem 0;
+		margin-right: -5rem;
 	}
 
 	&__description {
@@ -33,21 +36,24 @@
 		font-family: $ff-barlow;
 		line-height: 3ch;
 		font-size: 1.2rem;
+		max-width: 44ch;
 	}
 
 	&__button {
 		justify-self: right;
+		margin-top: 7rem;
 		color: $c-black;
 		background-color: $c-white;
 		border-radius: 50%;
-		height: 18rem;
+		width: 17rem;
+		flex-shrink: 0;
 		aspect-ratio: 1;
 		display: grid;
 		place-items: center;
 		font-family: $ff-bellefair;
 		text-transform: uppercase;
 		text-decoration: none;
-		font-size: 2.5rem;
+		font-size: 2.2rem;
 		outline: 0 solid $c-grey-transparent;
 		transition: outline 250ms;
 

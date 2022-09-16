@@ -2,33 +2,33 @@
 @use "@styles/variables" as *;
 
 .nav {
-	@include max-width(100rem);
-	display: flex;
+	@include max-width(90rem);
+	display: grid;
+	grid-template-columns: auto 1fr minmax(0, 52rem);
 	align-items: center;
-	padding-left: 4rem;
-	padding-top: 3rem;
+	margin-top: 3rem;
 
 	&__logo {
 		height: 3rem;
 		aspect-ratio: 1;
 		color: $c-white;
+		margin-left: 4rem;
+		width: 6rem;
 	}
 
 	&__line {
 		height: 1px;
 		background-color: $c-grey-transparent;
-		flex-grow: 1;
-		margin-left: 4rem;
-		margin-right: -2rem;
 		z-index: 1;
+		margin-right: -2rem;
 	}
 
 	&__link-container {
 		display: flex;
 		align-items: center;
-		gap: 6ch;
-		padding-left: 8rem;
-		padding-right: 10rem;
+		gap: clamp(1ch, 5vw, 6ch);
+		justify-content: center;
+		padding-right: 2rem;
 		backdrop-filter: blur(1rem);
 		position: relative;
 

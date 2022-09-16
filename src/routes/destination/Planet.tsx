@@ -3,7 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { destinations } from "@data/data.json";
 import trimName from "@utils/trimName";
 
-function Planet() {
+interface Props {
+	Menu: JSX.Element;
+}
+
+function Planet({ Menu }: Props) {
 	const { planet: slug } = useParams();
 	let navigate = useNavigate();
 
@@ -17,6 +21,7 @@ function Planet() {
 
 	return (
 		<div className="planet">
+			{Menu}
 			<div className="planet__image image">
 				<img src={planet?.images.webp} alt="" className="image__img" />
 			</div>

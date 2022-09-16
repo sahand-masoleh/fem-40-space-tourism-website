@@ -8,9 +8,10 @@
 
 .main {
 	@include max-width();
-	@media screen and (max-width: $max-width) {
-		margin: 0 1rem;
+	@media screen and (max-width: calc($max-width + 8rem)) {
+		margin: 0 4rem;
 	}
+
 	display: grid;
 	grid-template-rows: 7rem auto;
 	grid-template-areas:

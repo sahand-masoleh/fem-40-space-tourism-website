@@ -43,6 +43,7 @@
 		margin-bottom: -6rem;
 		margin-right: -2rem;
 		height: 38rem;
+		object-position: left;
 	}
 
 	&__article {
@@ -77,5 +78,6 @@
 		font-family: $ff-barlow;
 		line-height: 3ch;
 		max-width: 26rem;
+		margin-bottom: 2rem;
 	}
 }
