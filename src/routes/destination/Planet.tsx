@@ -21,10 +21,10 @@ function Planet({ Menu }: Props) {
 
 	return (
 		<div className="planet">
-			{Menu}
 			<div className="planet__image image">
 				<img src={planet?.images.webp} alt="" className="image__img" />
 			</div>
+			{Menu}
 			<article className="planet__article">
 				<h2 className="planet__name">{planet?.name}</h2>
 				<p className="planet__description">{planet?.description}</p>
