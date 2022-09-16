@@ -8,12 +8,20 @@
 		@media screen and (max-width: $tablet) {
 			background-image: url("/crew/background-crew-tablet.jpg");
 		}
+
+		@media screen and (max-width: $mobile) {
+			background-image: url("/crew/background-crew-mobile.jpg");
+		}
 	}
 
 	margin-top: 3rem;
 
 	@media screen and (max-width: $tablet) {
 		margin-top: 2rem;
+	}
+
+	@media screen and (max-width: $mobile) {
+		margin-top: 0;
 	}
 
 	&__link-container {
@@ -23,6 +31,11 @@
 
 		@media screen and (max-width: $tablet) {
 			gap: 1rem;
+		}
+
+		@media screen and (max-width: $mobile) {
+			order: -1;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -61,6 +74,10 @@
 		align-items: center;
 	}
 
+	@media screen and (max-width: $mobile) {
+		gap: 2rem;
+	}
+
 	&__image {
 		justify-self: end;
 		margin-bottom: -6rem;
@@ -75,6 +92,19 @@
 			margin-top: 2rem;
 			height: 32rem;
 		}
+
+		@media screen and (max-width: $mobile) {
+			height: 14rem;
+			order: -1;
+			position: relative;
+
+			&:after {
+				content: "";
+				position: absolute;
+				inset: 0 -3rem;
+				border-bottom: 1px solid $c-grey-transparent;
+			}
+		}
 	}
 
 	&__article {
@@ -86,6 +116,10 @@
 			text-align: center;
 			align-items: center;
 			margin-top: 2rem;
+		}
+
+		@media screen and (max-width: $mobile) {
+			margin-top: 0;
 		}
 	}
 
@@ -99,6 +133,10 @@
 		@media screen and (max-width: $tablet) {
 			line-height: unset;
 			font-size: 1.5rem;
+		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: 1rem;
 		}
 	}
 
@@ -119,6 +157,10 @@
 			margin-bottom: 1rem;
 			font-size: 2.5rem;
 		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: 1.5rem;
+		}
 	}
 
 	&__bio {
@@ -132,6 +174,10 @@
 		@media screen and (max-width: $tablet) {
 			font-size: 1rem;
 			max-width: 65ch;
+		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: 0.9rem;
 		}
 	}
 }
