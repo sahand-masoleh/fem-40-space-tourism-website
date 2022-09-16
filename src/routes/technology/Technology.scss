@@ -7,6 +7,10 @@
 
 	margin-top: 2rem;
 
+	@media screen and (max-width: $tablet) {
+		margin-top: 4rem;
+	}
+
 	&__link-container {
 		grid-column: 0/1;
 		margin-top: 6rem;
@@ -14,6 +18,13 @@
 		flex-direction: column;
 		gap: 2rem;
 		margin-right: 1rem;
+
+		@media screen and (max-width: $tablet) {
+			margin-right: unset;
+			margin-top: 3rem;
+			flex-direction: row;
+			gap: 1rem;
+		}
 	}
 
 	&__link {
@@ -33,6 +44,11 @@
 		transition: background-color color outline-color;
 		transition-duration: 250ms;
 
+		@media screen and (max-width: $tablet) {
+			width: 3.5rem;
+			font-size: 1.5rem;
+		}
+
 		&:not(&--active):hover {
 			outline-color: $c-white;
 		}
@@ -51,17 +67,34 @@
 	// prettier-ignore
 	grid-template-columns: 1fr minmax(0,38rem) minmax(0, 22rem);
 
+	@media screen and (max-width: $tablet) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
 	&__image {
 		grid-column: 3/4;
 		grid-row: 1/2;
 		margin-right: -10rem;
 		height: 33rem;
+
+		@media screen and (max-width: $tablet) {
+			margin: 0 -3rem;
+			height: 20rem;
+		}
 	}
 
 	&__article {
 		grid-column: 2/3;
 		margin-top: 6rem;
 		margin-right: 1rem;
+
+		@media screen and (max-width: $tablet) {
+			margin-right: unset;
+			margin-top: 3rem;
+			text-align: center;
+		}
 	}
 
 	&__title {
@@ -71,7 +104,6 @@
 		font-weight: 400;
 		font-size: 1rem;
 		letter-spacing: 0.25ch;
-		line-height: 3ch;
 	}
 
 	&__name {
@@ -80,9 +112,15 @@
 		font-family: $ff-bellefair;
 		font-weight: 400;
 		font-size: 3.5rem;
-		line-height: 3ch;
-		margin-bottom: 0.25ch;
+		margin-top: 0.5rem;
+		margin-bottom: 1rem;
 		margin-right: -4rem;
+
+		@media screen and (max-width: $tablet) {
+			margin-right: unset;
+			margin-top: 1rem;
+			font-size: 2.5rem;
+		}
 	}
 
 	&__description {
@@ -91,5 +129,10 @@
 		font-family: $ff-barlow;
 		line-height: 3ch;
 		max-width: 44ch;
+
+		@media screen and (max-width: $tablet) {
+			max-width: 48ch;
+			font-size: 1rem;
+		}
 	}
 }

@@ -23,7 +23,6 @@ function Terminology({ Menu }: Props) {
 
 	return (
 		<div className="terminology">
-			{Menu}
 			<picture className="terminology__image image">
 				<source
 					className="image__img"
@@ -36,6 +35,7 @@ function Terminology({ Menu }: Props) {
 					alt={terminology?.name}
 				/>
 			</picture>
+			{Menu}
 			<article className="terminology__article">
 				<h2 className="terminology__title">the terminology...</h2>
 				<h3 className="terminology__name">{terminology?.name}</h3>

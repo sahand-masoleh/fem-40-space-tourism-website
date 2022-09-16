@@ -10,7 +10,11 @@
 		}
 	}
 
-	margin-top: 2rem;
+	margin-top: 3rem;
+
+	@media screen and (max-width: $tablet) {
+		margin-top: 2rem;
+	}
 
 	&__link-container {
 		margin-top: auto;
@@ -49,10 +53,8 @@
 	justify-content: space-between;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1rem;
-	margin-top: 1rem;
 
 	@media screen and (max-width: $tablet) {
-		margin-top: unset;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
