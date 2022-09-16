@@ -79,6 +79,7 @@
 			padding: 7.5rem calc(var(--menu-open, 0) * 2rem) 0;
 			transition-property: max-width, padding;
 			transition-duration: 500ms;
+			backdrop-filter: blur(2rem) brightness(0.5);
 
 			&::after {
 				// for the click-away listener to cover the whole page
