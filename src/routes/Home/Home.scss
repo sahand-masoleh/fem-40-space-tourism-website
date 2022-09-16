@@ -8,6 +8,10 @@
 		@media screen and (max-width: $tablet) {
 			background-image: url("/home/background-home-tablet.jpg");
 		}
+
+		@media screen and (max-width: $mobile) {
+			background-image: url("/home/background-home-mobile.jpg");
+		}
 	}
 
 	margin-top: 8rem;
