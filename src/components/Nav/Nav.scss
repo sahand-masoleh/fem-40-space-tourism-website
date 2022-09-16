@@ -15,16 +15,28 @@
 		justify-content: space-between;
 	}
 
+	@media screen and (max-width: $mobile) {
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1.5rem;
+	}
+
 	&__logo {
 		height: 3rem;
-		aspect-ratio: 1;
+		aspect-ratio: 2;
 		color: $c-white;
 		margin-left: 4rem;
-		width: 6rem;
 
 		@media screen and (max-width: $tablet) {
 			margin-left: 2rem;
 			width: unset;
+		}
+
+		@media screen and (max-width: $mobile) {
+			margin-left: unset;
+			height: 2.5rem;
 		}
 	}
 
@@ -55,6 +67,29 @@
 			gap: 1ch;
 		}
 
+		@media screen and (max-width: $mobile) {
+			position: absolute;
+			inset: 0 0 0 auto;
+			max-width: calc(var(--menu-open, 0) * 16rem);
+			width: 100%;
+			z-index: 1;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			padding: 7.5rem calc(var(--menu-open, 0) * 2rem) 0;
+			transition-property: max-width, padding;
+			transition-duration: 500ms;
+
+			&::after {
+				// for the click-away listener to cover the whole page
+				position: absolute;
+				content: "";
+				inset: 0;
+				right: 100%;
+				left: -100%;
+			}
+		}
+
 		&::before {
 			content: "";
 			position: absolute;
@@ -78,6 +113,14 @@
 			font-size: 0.9rem;
 		}
 
+		@media screen and (max-width: $mobile) {
+			min-height: unset;
+			opacity: calc(var(--menu-open, 0) * 1);
+			transition: opacity 500ms;
+			margin-bottom: 1.5rem;
+			font-size: 1.1rem;
+		}
+
 		&--active {
 			&::after {
 				position: absolute;
@@ -86,6 +129,10 @@
 				height: 2px;
 				width: 100%;
 				background-color: $c-white;
+
+				@media screen and (max-width: $mobile) {
+					display: none;
+				}
 			}
 		}
 	}
@@ -97,6 +144,10 @@
 		@media screen and (max-width: $tablet) {
 			display: none;
 		}
+
+		@media screen and (max-width: $mobile) {
+			display: unset;
+		}
 	}
 
 	&__text {
@@ -107,5 +158,29 @@
 	&__hoverbox {
 		@extend %hoverbox;
 		background-color: $c-grey;
+
+		@media screen and (max-width: $mobile) {
+			display: none;
+		}
+	}
+
+	&__button {
+		display: none;
+		z-index: 2;
+
+		@media screen and (max-width: $mobile) {
+			display: grid;
+			place-items: center;
+			background-color: transparent;
+			border: none;
+			color: $c-light-blue;
+			width: 2rem;
+			flex-shrink: 0;
+			aspect-ratio: 1;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
