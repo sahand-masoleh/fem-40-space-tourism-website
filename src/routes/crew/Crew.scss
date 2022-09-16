@@ -4,6 +4,10 @@
 	&__background {
 		background-image: url("/crew/background-crew-desktop.jpg");
 		filter: brightness(0.66);
+
+		@media screen and (max-width: $tablet) {
+			background-image: url("/crew/background-crew-tablet.jpg");
+		}
 	}
 
 	margin-top: 2rem;
@@ -12,15 +16,23 @@
 		margin-top: auto;
 		display: flex;
 		gap: 1.5rem;
+
+		@media screen and (max-width: $tablet) {
+			gap: 1rem;
+		}
 	}
 
 	&__link {
 		display: block;
 		width: 1rem;
-		height: 1rem;
+		aspect-ratio: 1;
 		border-radius: 50%;
 		transition: background-color 250ms;
 		background-color: $c-grey-transparent;
+
+		@media screen and (max-width: $tablet) {
+			width: 0.66rem;
+		}
 
 		&:not(&--active):hover {
 			background-color: $c-grey;
@@ -37,6 +49,15 @@
 	justify-content: space-between;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1rem;
+	margin-top: 1rem;
+
+	@media screen and (max-width: $tablet) {
+		margin-top: unset;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
 
 	&__image {
 		justify-self: end;
@@ -44,12 +65,26 @@
 		margin-right: -2rem;
 		height: 38rem;
 		object-position: left;
+
+		@media screen and (max-width: $tablet) {
+			margin-bottom: unset;
+			margin-right: unset;
+			object-position: initial;
+			margin-top: 2rem;
+			height: 32rem;
+		}
 	}
 
 	&__article {
 		display: flex;
 		flex-direction: column;
 		margin-top: 6rem;
+
+		@media screen and (max-width: $tablet) {
+			text-align: center;
+			align-items: center;
+			margin-top: 2rem;
+		}
 	}
 
 	&__role {
@@ -58,7 +93,11 @@
 		font-family: $ff-bellefair;
 		font-weight: 400;
 		font-size: 2rem;
-		line-height: 3ch;
+
+		@media screen and (max-width: $tablet) {
+			line-height: unset;
+			font-size: 1.5rem;
+		}
 	}
 
 	&__name {
@@ -67,9 +106,17 @@
 		font-family: $ff-bellefair;
 		font-weight: 400;
 		font-size: 3.5rem;
-		line-height: 3ch;
-		margin-bottom: 1rem;
+		margin-top: 1rem;
+		margin-bottom: 2rem;
 		margin-right: -4rem;
+
+		@media screen and (max-width: $tablet) {
+			line-height: unset;
+			margin-right: unset;
+			margin-top: 0.5rem;
+			margin-bottom: 1rem;
+			font-size: 2.5rem;
+		}
 	}
 
 	&__bio {
@@ -77,7 +124,12 @@
 		font-size: 1.1rem;
 		font-family: $ff-barlow;
 		line-height: 3ch;
-		max-width: 26rem;
+		max-width: 42ch;
 		margin-bottom: 2rem;
+
+		@media screen and (max-width: $tablet) {
+			font-size: 1rem;
+			max-width: 65ch;
+		}
 	}
 }
