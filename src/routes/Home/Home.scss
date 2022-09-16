@@ -23,6 +23,10 @@
 		text-align: center;
 	}
 
+	&__article {
+		min-width: 0;
+	}
+
 	&__pre-title {
 		display: grid;
 		grid-template-columns: max-content;
@@ -38,6 +42,10 @@
 			margin-right: unset;
 			font-size: 1.2rem;
 		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: 1rem;
+		}
 	}
 
 	&__title {
@@ -52,6 +60,10 @@
 		@media screen and (max-width: $tablet) {
 			margin: 1rem 0;
 		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: clamp(3rem, 25vw, 5rem);
+		}
 	}
 
 	&__description {
@@ -63,6 +75,10 @@
 
 		@media screen and (max-width: $tablet) {
 			font-size: 1rem;
+		}
+
+		@media screen and (max-width: $mobile) {
+			font-size: 0.9rem;
 		}
 	}
 
@@ -86,11 +102,21 @@
 
 		&:hover {
 			outline-width: 5rem;
+
+			@media screen and (max-width: $mobile) {
+				outline-width: 3rem;
+			}
 		}
 
 		@media screen and (max-width: $tablet) {
 			margin-top: 10rem;
 			width: 15rem;
+		}
+
+		@media screen and (max-width: $mobile) {
+			margin-top: 6rem;
+			width: 10rem;
+			font-size: 1.4rem;
 		}
 	}
 }

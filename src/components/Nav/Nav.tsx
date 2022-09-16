@@ -30,7 +30,7 @@ for (let index = 0; index < Object.keys(paths).length; index++) {
 }
 
 function Nav() {
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	function handleMobileMenu(): void {
 		setIsOpen((prev) => !prev);

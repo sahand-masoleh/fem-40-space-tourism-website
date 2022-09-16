@@ -24,6 +24,10 @@
 		margin: 0 2rem;
 	}
 
+	@media screen and (max-width: $mobile) {
+		grid-template-rows: 3rem auto;
+	}
+
 	&__title {
 		grid-area: title;
 		align-self: end;
