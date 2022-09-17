@@ -6,12 +6,9 @@
 	box-sizing: border-box;
 }
 
-body {
-	overflow-x: hidden;
-}
-
 .main {
 	@include max-width();
+	margin-bottom: 4rem;
 
 	display: grid;
 	grid-template-rows: 7rem auto;
@@ -26,6 +23,7 @@ body {
 	@media screen and (max-width: $tablet) {
 		grid-template-rows: 4rem auto;
 		margin: 0 2rem;
+		margin-bottom: 2rem;
 	}
 
 	@media screen and (max-width: $mobile) {

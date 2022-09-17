@@ -78,7 +78,7 @@
 		flex-direction: column;
 		justify-content: unset;
 		align-items: center;
-		gap: 3rem;
+		gap: 2rem;
 	}
 
 	@media screen and (max-width: $mobile) {
@@ -95,12 +95,13 @@
 		@media screen and (max-width: $tablet) {
 			justify-self: unset;
 			align-self: unset;
-			height: 18rem;
+			height: 19rem;
 			object-position: center;
+			margin-bottom: 1rem;
+		}
 
-			@media screen and (max-width: $mobile) {
-				height: 11rem;
-			}
+		@media screen and (max-width: $mobile) {
+			height: 10rem;
 		}
 	}
 

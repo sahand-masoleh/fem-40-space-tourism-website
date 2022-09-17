@@ -60,6 +60,7 @@
 		padding-right: clamp(1rem, 12vw, 10rem);
 		backdrop-filter: blur(1rem);
 		position: relative;
+		// overflow: hidden;
 
 		@media screen and (max-width: $tablet) {
 			padding: 0 3rem;
@@ -68,7 +69,7 @@
 		}
 
 		@media screen and (max-width: $mobile) {
-			position: absolute;
+			position: fixed;
 			inset: 0 0 0 auto;
 			max-width: calc(var(--menu-open, 0) * 16rem);
 			width: 100%;
@@ -76,18 +77,16 @@
 			flex-direction: column;
 			justify-content: flex-start;
 			align-items: flex-start;
-			padding: 7.5rem calc(var(--menu-open, 0) * 2rem) 0;
-			transition-property: max-width, padding;
+			padding: 7.5rem 0;
+			transition-property: max-width;
 			transition-duration: 500ms;
 			backdrop-filter: blur(2rem) brightness(0.5);
 
 			&::after {
 				// for the click-away listener to cover the whole page
-				position: absolute;
+				position: fixed;
 				content: "";
-				inset: 0;
-				right: 100%;
-				left: -100%;
+				inset: 0 100% 0 -100%;
 			}
 		}
 
@@ -116,9 +115,7 @@
 
 		@media screen and (max-width: $mobile) {
 			min-height: unset;
-			opacity: calc(var(--menu-open, 0) * 1);
-			transition: opacity 500ms;
-			margin-bottom: 1.5rem;
+			margin: 0 2rem 1.5rem;
 			font-size: 1.1rem;
 		}
 
