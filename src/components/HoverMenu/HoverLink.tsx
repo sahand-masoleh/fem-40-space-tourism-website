@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { hoverDims } from "./HoverBox";
 
 interface Props {
@@ -11,16 +11,6 @@ interface Props {
 
 function HoverLink({ className, path, handleHoverDims, children }: Props) {
 	const elemRef = useRef<HTMLAnchorElement | null>(null);
-	const { pathname } = useLocation();
-	const [active, setActive] = useState<boolean>(false);
-
-	useEffect(() => {
-		if (!!pathname.match(new RegExp(`${path}`))) {
-			setActive(true);
-		} else {
-			setActive(false);
-		}
-	}, [pathname]);
 
 	function handleMouseEnter() {
 		const { clientWidth, offsetLeft } = elemRef.current || {};
@@ -32,14 +22,16 @@ function HoverLink({ className, path, handleHoverDims, children }: Props) {
 	}
 
 	return (
-		<Link
+		<NavLink
 			ref={elemRef}
 			to={path}
-			className={`${className} ${active ? `${className}--active` : ""}`}
+			className={({ isActive }) =>
+				`${className} ${isActive ? `${className}--active` : ""}`
+			}
 			onMouseEnter={() => handleMouseEnter()}
 		>
 			{children}
-		</Link>
+		</NavLink>
 	);
 }
 
