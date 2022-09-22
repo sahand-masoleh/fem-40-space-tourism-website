@@ -23,27 +23,23 @@ function Member({ Menu }: Props) {
 
 	return (
 		<div className="member">
-			<AnimatePresence mode="wait">
-				<motion.article
-					className="member__article"
-					key={slug + "-article"}
-					{...articleTransition(0.1)}
-				>
-					<h2 className="member__role">{member?.role}</h2>
-					<h3 className="member__name">{member?.name}</h3>
-					<p className="member__bio">{member?.bio}</p>
-				</motion.article>
-			</AnimatePresence>
+			<motion.article
+				className="member__article"
+				key={slug + "-article"}
+				{...articleTransition(0.1)}
+			>
+				<h2 className="member__role">{member?.role}</h2>
+				<h3 className="member__name">{member?.name}</h3>
+				<p className="member__bio">{member?.bio}</p>
+			</motion.article>
 			{Menu}
-			<AnimatePresence mode="wait">
-				<motion.div
-					className="member__image image"
-					key={slug + "-image"}
-					{...articleTransition()}
-				>
-					<img src={member?.images.webp} alt="" className="image__img" />
-				</motion.div>
-			</AnimatePresence>
+			<motion.div
+				className="member__image image"
+				key={slug + "-image"}
+				{...articleTransition(0.25)}
+			>
+				<img src={member?.images.webp} alt="" className="image__img" />
+			</motion.div>
 		</div>
 	);
 }

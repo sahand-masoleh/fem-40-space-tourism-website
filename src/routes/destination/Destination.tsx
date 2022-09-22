@@ -1,5 +1,6 @@
 import "./Destination.scss";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import useData from "@hooks/useData";
 import Planet from "./Planet";
 import HoverMenu, { menuItem } from "@components/HoverMenu/HoverMenu";
@@ -18,6 +19,7 @@ interface Props {
 
 function Destination({ destinations }: Props) {
 	const links = useData(destinations);
+	const location = useLocation();
 
 	const items: menuItem[] = [];
 	for (let link of links) {
@@ -32,15 +34,22 @@ function Destination({ destinations }: Props) {
 			</h1>
 			<div className="destination">
 				<div className="destination__background background" />
-				<Routes>
-					<Route
-						path="/:planet"
-						element={
-							<Planet Menu={<HoverMenu block="destination" items={items} />} />
-						}
-					></Route>
-					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
-				</Routes>
+				<AnimatePresence mode="wait">
+					<Routes location={location} key={location.pathname}>
+						<Route
+							path="/:planet"
+							element={
+								<Planet
+									Menu={<HoverMenu block="destination" items={items} />}
+								/>
+							}
+						></Route>
+						<Route
+							path="*"
+							element={<Navigate to={`../${links[0]}`} />}
+						></Route>
+					</Routes>
+				</AnimatePresence>
 			</div>
 		</main>
 	);

@@ -8,3 +8,12 @@ export function articleTransition(duration: number = 0.25): MotionProps {
 		transition: { duration },
 	};
 }
+
+export function pageTransition(duration: number = 0.25): MotionProps {
+	return {
+		initial: { opacity: 0 },
+		animate: { opacity: 1 },
+		exit: { opacity: 0 },
+		transition: { duration },
+	};
+}

@@ -1,5 +1,6 @@
 import "./Crew.scss";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import useData from "@hooks/useData";
 import Member from "./Member";
 import SimpleMenu, { item } from "@components/SimpleMenu/SimpleMenu";
@@ -17,6 +18,7 @@ interface Props {
 
 function Crew({ crew }: Props) {
 	const links = useData(crew);
+	const location = useLocation();
 
 	const items: item[] = [];
 	for (let link of links) {
@@ -31,15 +33,20 @@ function Crew({ crew }: Props) {
 			</h1>
 			<div className="crew">
 				<div className="crew__background background" />
-				<Routes>
-					<Route
-						path="/:member"
-						element={
-							<Member Menu={<SimpleMenu items={items} block="crew" />} />
-						}
-					></Route>
-					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
-				</Routes>
+				<AnimatePresence mode="wait">
+					<Routes location={location} key={location.pathname}>
+						<Route
+							path="/:member"
+							element={
+								<Member Menu={<SimpleMenu items={items} block="crew" />} />
+							}
+						></Route>
+						<Route
+							path="*"
+							element={<Navigate to={`../${links[0]}`} />}
+						></Route>
+					</Routes>
+				</AnimatePresence>
 			</div>
 		</main>
 	);

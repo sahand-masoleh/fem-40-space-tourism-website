@@ -1,5 +1,6 @@
 import "./Technology.scss";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import useData from "@hooks/useData";
 import Terminology from "./Terminology";
 import SimpleMenu, { item } from "@components/SimpleMenu/SimpleMenu";
@@ -17,6 +18,7 @@ interface Props {
 
 function Technology({ technology }: Props) {
 	const links = useData(technology);
+	const location = useLocation();
 
 	const items: item[] = [];
 	for (let index = 0; index < links.length; index++) {
@@ -31,17 +33,22 @@ function Technology({ technology }: Props) {
 			</h1>
 			<div className="technology">
 				<div className="technology__background background" />
-				<Routes>
-					<Route
-						path="/:terminology"
-						element={
-							<Terminology
-								Menu={<SimpleMenu items={items} block="technology" />}
-							/>
-						}
-					></Route>
-					<Route path="*" element={<Navigate to={`../${links[0]}`} />}></Route>
-				</Routes>
+				<AnimatePresence mode="wait">
+					<Routes key={location.pathname} location={location}>
+						<Route
+							path="/:terminology"
+							element={
+								<Terminology
+									Menu={<SimpleMenu items={items} block="technology" />}
+								/>
+							}
+						></Route>
+						<Route
+							path="*"
+							element={<Navigate to={`../${links[0]}`} />}
+						></Route>
+					</Routes>
+				</AnimatePresence>
 			</div>
 		</main>
 	);
