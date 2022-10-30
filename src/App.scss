@@ -12,54 +12,69 @@ body,
 	height: 100%;
 }
 
+body {
+	background-color: $c-black;
+}
+
 .app {
 	min-height: 100%;
 	padding-top: 3rem;
-	background-color: $c-black;
-	background-size: cover;
+	position: relative;
 
-	&[data-background="home"] {
-		background-image: url("/home/background-home-desktop.jpg");
-
-		@media screen and (max-width: $tablet) {
-			background-image: url("/home/background-home-tablet.jpg");
-		}
-
-		@media screen and (max-width: $mobile) {
-			background-image: url("/home/background-home-mobile.jpg");
-		}
+	@media screen and (max-width: $mobile) {
+		padding-top: 2rem;
 	}
-	&[data-background="destination"] {
-		background-image: url("/destination/background-destination-desktop.jpg");
 
-		@media screen and (max-width: $tablet) {
-			background-image: url("/destination/background-destination-tablet.jpg");
+	&__background {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		&[data-background="home"] {
+			background-image: url("/home/background-home-desktop.jpg");
+
+			@media screen and (max-width: $tablet) {
+				background-image: url("/home/background-home-tablet.jpg");
+			}
+
+			@media screen and (max-width: $mobile) {
+				background-image: url("/home/background-home-mobile.jpg");
+			}
 		}
+		&[data-background="destination"] {
+			background-image: url("/destination/background-destination-desktop.jpg");
 
-		@media screen and (max-width: $mobile) {
-			background-image: url("/destination/background-destination-mobile.jpg");
+			@media screen and (max-width: $tablet) {
+				background-image: url("/destination/background-destination-tablet.jpg");
+			}
+
+			@media screen and (max-width: $mobile) {
+				background-image: url("/destination/background-destination-mobile.jpg");
+			}
 		}
-	}
-	&[data-background="crew"] {
-		background-image: url("/crew/background-crew-desktop.jpg");
+		&[data-background="crew"] {
+			background-image: url("/crew/background-crew-desktop.jpg");
 
-		@media screen and (max-width: $tablet) {
-			background-image: url("/crew/background-crew-tablet.jpg");
+			@media screen and (max-width: $tablet) {
+				background-image: url("/crew/background-crew-tablet.jpg");
+			}
+
+			@media screen and (max-width: $mobile) {
+				background-image: url("/crew/background-crew-mobile.jpg");
+			}
 		}
+		&[data-background="technology"] {
+			background-image: url("/technology/background-technology-desktop.jpg");
 
-		@media screen and (max-width: $mobile) {
-			background-image: url("/crew/background-crew-mobile.jpg");
-		}
-	}
-	&[data-background="technology"] {
-		background-image: url("/technology/background-technology-desktop.jpg");
+			@media screen and (max-width: $tablet) {
+				background-image: url("/technology/background-technology-tablet.jpg");
+			}
 
-		@media screen and (max-width: $tablet) {
-			background-image: url("/technology/background-technology-tablet.jpg");
-		}
-
-		@media screen and (max-width: $mobile) {
-			background-image: url("/technology/background-technology-mobile.jpg");
+			@media screen and (max-width: $mobile) {
+				background-image: url("/technology/background-technology-mobile.jpg");
+			}
 		}
 	}
 }
