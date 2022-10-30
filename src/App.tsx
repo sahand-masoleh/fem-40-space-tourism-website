@@ -1,7 +1,14 @@
 import "@styles/common.scss";
 import "./App.scss";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+	BrowserRouter,
+	Routes,
+	Route,
+	Navigate,
+	useLocation,
+} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import data from "@data/data.json";
 import Nav from "@components/Nav/Nav";
 import Home from "@routes/Home/Home";
@@ -11,8 +18,8 @@ import Technology from "@routes/technology/Technology";
 
 function App() {
 	return (
-		<div className="app">
-			<BrowserRouter>
+		<BrowserRouter>
+			<AnimationWrapper>
 				<Nav />
 				<Routes>
 					<Route path="/home" element={<Home />}></Route>
@@ -27,9 +34,24 @@ function App() {
 					></Route>
 					<Route path="/*" element={<Navigate to="/home"></Navigate>}></Route>
 				</Routes>
-			</BrowserRouter>
-		</div>
+			</AnimationWrapper>
+		</BrowserRouter>
 	);
 }
 
 export default App;
+
+interface AnimationWrapperable {
+	children: React.ReactElement[];
+}
+
+function AnimationWrapper({ children }: AnimationWrapperable) {
+	const location = useLocation();
+	return (
+		<AnimatePresence mode="wait">
+			<div className="app" data-background={location.pathname.split("/")[1]}>
+				{children}
+			</div>
+		</AnimatePresence>
+	);
+}

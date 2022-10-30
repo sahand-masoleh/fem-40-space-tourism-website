@@ -1,18 +1,6 @@
 @use "@styles/variables" as *;
 
 .technology {
-	&__background {
-		background-image: url("/technology/background-technology-desktop.jpg");
-
-		@media screen and (max-width: $tablet) {
-			background-image: url("/technology/background-technology-tablet.jpg");
-		}
-
-		@media screen and (max-width: $mobile) {
-			background-image: url("/technology/background-technology-mobile.jpg");
-		}
-	}
-
 	margin-top: 2rem;
 
 	@media screen and (max-width: $tablet) {

@@ -1,9 +1,10 @@
 import "./Destination.scss";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import useData from "@hooks/useData";
 import Planet from "./Planet";
 import HoverMenu, { menuItem } from "@components/HoverMenu/HoverMenu";
+import { pageTransition } from "@styles/transitions";
 
 interface Props {
 	destinations: {
@@ -27,13 +28,12 @@ function Destination({ destinations }: Props) {
 	}
 
 	return (
-		<main className="main">
+		<motion.main className="main" {...pageTransition()}>
 			<h1 className="main__title title">
 				<span className="title__number">01</span>
 				<span className="title__text">pick your destination</span>
 			</h1>
 			<div className="destination">
-				<div className="destination__background background" />
 				<AnimatePresence mode="wait">
 					<Routes location={location} key={location.pathname}>
 						<Route
@@ -51,7 +51,7 @@ function Destination({ destinations }: Props) {
 					</Routes>
 				</AnimatePresence>
 			</div>
-		</main>
+		</motion.main>
 	);
 }
 

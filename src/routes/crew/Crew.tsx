@@ -1,9 +1,10 @@
 import "./Crew.scss";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import useData from "@hooks/useData";
 import Member from "./Member";
 import SimpleMenu, { item } from "@components/SimpleMenu/SimpleMenu";
+import { pageTransition } from "@styles/transitions";
 
 interface Props {
 	crew: {
@@ -26,13 +27,12 @@ function Crew({ crew }: Props) {
 	}
 
 	return (
-		<main className="main">
+		<motion.main className="main" {...pageTransition()}>
 			<h1 className="main__title title">
 				<span className="title__number">02</span>
 				<span className="title__text">meet your crew</span>
 			</h1>
 			<div className="crew">
-				<div className="crew__background background" />
 				<AnimatePresence mode="wait">
 					<Routes location={location} key={location.pathname}>
 						<Route
@@ -48,7 +48,7 @@ function Crew({ crew }: Props) {
 					</Routes>
 				</AnimatePresence>
 			</div>
-		</main>
+		</motion.main>
 	);
 }
 

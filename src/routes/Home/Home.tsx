@@ -1,11 +1,12 @@
 import "./Home.scss";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { pageTransition } from "@styles/transitions";
 
 function Home() {
 	return (
-		<main className="main">
+		<motion.main className="main" {...pageTransition()}>
 			<div className="main__content home">
-				<div className="home__background background" />
 				<article className="home__article">
 					<span className="home__pre-title">so, you want to travel to</span>
 					<h1 className="home__title">space</h1>
@@ -20,7 +21,7 @@ function Home() {
 					explore
 				</Link>
 			</div>
-		</main>
+		</motion.main>
 	);
 }
 

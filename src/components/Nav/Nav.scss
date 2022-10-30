@@ -6,10 +6,8 @@
 	display: grid;
 	grid-template-columns: auto 1fr minmax(0, 52rem);
 	align-items: center;
-	margin-top: 3rem;
 
 	@media screen and (max-width: $tablet) {
-		margin-top: 0;
 		grid-template-columns: auto minmax(0, 28rem);
 		gap: 2rem;
 		justify-content: space-between;
@@ -60,7 +58,6 @@
 		padding-right: clamp(1rem, 12vw, 10rem);
 		backdrop-filter: blur(1rem);
 		position: relative;
-		// overflow: hidden;
 
 		@media screen and (max-width: $tablet) {
 			padding: 0 3rem;
@@ -79,7 +76,7 @@
 			align-items: flex-start;
 			padding: 7.5rem 0;
 			transition-property: max-width;
-			transition-duration: 500ms;
+			transition-duration: 250ms;
 			backdrop-filter: blur(2rem) brightness(0.5);
 
 			&::after {

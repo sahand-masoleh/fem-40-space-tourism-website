@@ -2,18 +2,6 @@
 @use "@styles/variables" as *;
 
 .destination {
-	&__background {
-		background-image: url("/destination/background-destination-desktop.jpg");
-
-		@media screen and (max-width: $tablet) {
-			background-image: url("/destination/background-destination-tablet.jpg");
-		}
-
-		@media screen and (max-width: $mobile) {
-			background-image: url("/destination/background-destination-mobile.jpg");
-		}
-	}
-
 	margin-top: 4rem;
 
 	@media screen and (max-width: $mobile) {
