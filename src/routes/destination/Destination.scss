@@ -93,6 +93,10 @@
 		}
 	}
 
+	&__img {
+		max-width: unset;
+	}
+
 	&__article {
 		justify-self: right;
 

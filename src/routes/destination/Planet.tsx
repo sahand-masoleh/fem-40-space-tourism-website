@@ -24,7 +24,11 @@ function Planet({ Menu }: Props) {
 	return (
 		<div className="planet">
 			<motion.div className="planet__image image" {...articleTransition(0.1)}>
-				<img src={planet?.images.webp} alt="" className="image__img" />
+				<img
+					src={planet?.images.webp}
+					alt=""
+					className="image__img planet__img"
+				/>
 			</motion.div>
 			{Menu}
 			<motion.article className="planet__article" {...articleTransition(0.25)}>

@@ -38,7 +38,11 @@ function Member({ Menu }: Props) {
 				key={slug + "-image"}
 				{...articleTransition(0.25)}
 			>
-				<img src={member?.images.webp} alt="" className="image__img" />
+				<img
+					src={member?.images.webp}
+					alt=""
+					className="image__img member__img"
+				/>
 			</motion.div>
 		</div>
 	);

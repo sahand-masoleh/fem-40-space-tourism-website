@@ -71,6 +71,7 @@
 		margin-bottom: -6rem;
 		margin-right: -2rem;
 		height: 37rem;
+		object-position: left;
 
 		@media screen and (max-width: $tablet) {
 			margin-bottom: unset;
@@ -91,6 +92,10 @@
 				border-bottom: 1px solid $c-grey-transparent;
 			}
 		}
+	}
+
+	&__img {
+		max-width: unset;
 	}
 
 	&__article {

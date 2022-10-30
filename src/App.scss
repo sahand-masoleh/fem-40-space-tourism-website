@@ -20,6 +20,7 @@ body {
 	min-height: 100%;
 	padding-top: 3rem;
 	position: relative;
+	overflow-x: hidden;
 
 	@media screen and (max-width: $mobile) {
 		padding-top: 2rem;
@@ -90,7 +91,8 @@ body {
 		"content";
 
 	@media screen and (max-width: calc($max-width + 8rem)) {
-		margin: 0 4rem;
+		margin-left: 4rem;
+		margin-right: 4rem;
 	}
 
 	@media screen and (max-width: $tablet) {
