@@ -23,8 +23,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/sahand-masoleh/fem-40-space-tourism-website](https://github.com/sahand-masoleh/fem-40-space-tourism-website)
-- Live Site URL: [https://capable-puppy-9caaf2.netlify.app](https://capable-puppy-9caaf2.netlify.app)
+- [Git Repo](https://github.com/sahand-masoleh/fem-40-space-tourism-website)
+- [Live Site](https://sm-fem40-space-tourism.netlify.app)
 
 ## My process
 
